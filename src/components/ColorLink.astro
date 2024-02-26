@@ -1,0 +1,28 @@
+<script is:inline>
+  const color = [
+    "#f47c7c",
+    "#f7f48b",
+    "#a1de93",
+    "#70a1d7",
+  ];
+
+  function getRandomColor() {
+    return color[Math.floor(Math.random() * 4)];
+  }
+
+  function setLinkColor() {
+    Array.from(document.getElementsByTagName("a")).forEach((a) => {
+      a.style.textDecorationLine = "underline";
+      a.style.textDecorationColor = getRandomColor();
+    });
+  }
+
+  function setLinkHoverColor() {
+    Array.from(document.querySelectorAll("a, button")).forEach((e) => {
+      e.addEventListener("mouseover", setLinkColor);
+    });
+  }
+
+  setLinkColor()
+  setLinkHoverColor()
+</script>
