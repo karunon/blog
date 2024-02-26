@@ -1,0 +1,43 @@
+---
+import BaseLayout from './BaseLayout.astro'
+
+const { frontmatter } = Astro.props;
+console.log(frontmatter)
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+  <style is:global>
+    .markdown-body ul {
+      @apply list-disc list-inside pl-4 mb-4
+    }
+    .markdown-body h1, h2, h3 {
+      @apply font-bold mb-4
+    }
+    .markdown-body h1, h2 {
+      @apply border-b-2 border-solid border-gray-200 
+    }
+    .markdown-body h1 {
+      @apply text-3xl pb-2
+    }
+    .markdown-body h2 {
+      @apply text-2xl
+    }
+    .markdown-body h3 {
+      @apply text-lg
+    }
+    .markdown-body p {
+      @apply mb-4
+    }
+  </style>
+  <div class="py-[20px]">
+    <!-- <p>{frontmatter.author}</p> -->
+    <p>publish date : {frontmatter.pubDate.slice(0,10)}</p>
+    <!-- <p>{frontmatter.pubDate}</p> -->
+    <div>
+      tags : {frontmatter.tags.map((t) => <a class="px-[5px]" href={`/tags/${t}`}>{`#${t}`}</a>)}
+    </div>
+  </div>
+  <div class="markdown-body">
+    <slot />
+  </div>
+</BaseLayout>

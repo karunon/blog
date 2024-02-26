@@ -1,0 +1,32 @@
+---
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+
+const { pageTitle } = Astro.props
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>karu's blog - {pageTitle}</title>
+</head>
+<body>
+  <div class="text-center">
+    <!-- <h1 class="text-3xl font-bold underline">Karuno's Blog</h1> -->
+    <Header />
+    <h1 class="text-3xl font-bold underline pb-[20px]">{pageTitle}</h1>
+  </div>
+  <div class="flex">
+    <div class="w-1/5" />
+    <div class="w-3/5">
+      <slot />
+    </div>
+    <div class="w-1/5" />
+  </div>
+  <div class="text-center">
+    <Footer />
+  </div>
+  </div>
+</body>
+</html>
