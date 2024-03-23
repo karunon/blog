@@ -12,7 +12,7 @@ const { pageTitle } = Astro.props
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>karu's blog - {pageTitle}</title>
 </head>
-<body class="flex bg-orange-50 text-slate-700 dark:bg-slate-900 dark:text-slate-300">
+<body class="flex overflow-y-scroll bg-orange-50 text-slate-700 dark:bg-slate-900 dark:text-slate-300">
   <div class="min-w-[100px] max-w-[500px] m-auto px-[50px]">
     <Header />
     <h1 class="text-3xl font-bold underline pb-[20px] text-center">{pageTitle}</h1>
